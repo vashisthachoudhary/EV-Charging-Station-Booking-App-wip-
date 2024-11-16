@@ -92,7 +92,7 @@ class ListAllStationsState extends State<ListAllStations> {
                             const Icon(Icons.attach_money, color: Colors.greenAccent),
                             const SizedBox(width: 5),
                             Text(
-                              "₹${station.pricingInfo.pricePerHour}/hr",
+                              "₹${(station.pricingInfo.pricePerHour).toDouble()}/hr",
                               style: const TextStyle(color: Colors.white),
                             ),
                           ],

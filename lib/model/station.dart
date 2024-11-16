@@ -66,7 +66,7 @@ class Pricing {
   // Create a Pricing instance from a Map
   factory Pricing.fromMap(Map<String, dynamic> map) {
     return Pricing(
-      pricePerHour: map['pricePerHour'] ?? 0.0,
+      pricePerHour: map['pricePerHour'].toDouble() ?? 0.0,
       chargingTimeSpent: map['chargingTimeSpent'] ?? 0,
     );
   }
