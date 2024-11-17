@@ -59,7 +59,7 @@ class LoginPageState extends State<LoginPage> {
         final doc = await docRef.get();
 
         if (doc.exists) {
-          Navigator.of(context).pushReplacementNamed("/home");
+          Navigator.of(context).pushReplacementNamed("/home/");
         } else {
           print("Document does not exist.");
         }

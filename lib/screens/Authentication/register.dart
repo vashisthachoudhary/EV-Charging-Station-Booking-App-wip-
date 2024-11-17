@@ -70,7 +70,7 @@ class RegisterPageState extends State<RegisterPage> {
           // add more fields if necessary
         });
   if (!mounted) return; 
-        Navigator.of(context).pushReplacementNamed("/home");
+        Navigator.of(context).pushReplacementNamed("/home/");
       } on FirebaseAuthException catch (e) {
         if (e.code == 'weak-password') {
           print('The password provided is too weak.');
