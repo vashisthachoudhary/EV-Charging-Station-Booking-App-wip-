@@ -69,8 +69,8 @@ class _AddStationState extends State<AddStation> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        foregroundColor: Colors.white,
-        backgroundColor: const Color(0xFF333333),
+        foregroundColor: Colors.black,
+        backgroundColor: Colors.blue,
         title: "Add Station".text.make(),
       ),
       body: Padding(
@@ -145,7 +145,7 @@ class _AddStationState extends State<AddStation> {
                     //keyboardType: TextInputType.number, // Numeric input.
                   ),
                   20.heightBox,
-
+                  
                   // Charging Time Spent Field.
                   MyTextFormField(
                     onSav: (value) {
@@ -163,12 +163,12 @@ class _AddStationState extends State<AddStation> {
                     width: 200,
                      child: ElevatedButton(
                       onPressed: addStationToDB,
-                       style: ButtonStyle(
-                       //  backgroundColor: WidgetStatePropertyAll(Mytheme.darkGreenish),
-                      ),
+                       style:const ButtonStyle(
+                        backgroundColor: WidgetStatePropertyAll(Colors.black),
+                       ),
                      child: saveChange
                            ? const CircularProgressIndicator(
-                             strokeWidth: 1, color: Colors.white)
+                             strokeWidth: 1, color: Colors.green)
                          : "Add Station".text.white.xl.make(),
                 ),)
                 ],

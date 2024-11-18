@@ -55,7 +55,6 @@ class RegisterPageState extends State<RegisterPage> {
     String email = _emailController.text.trim();
     String password = _passwordController.text.trim();
     String name = _nameController.text.trim();
-
     if (email.isNotEmpty && password.isNotEmpty && name.isNotEmpty) {
       try {
         final userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
@@ -67,10 +66,11 @@ class RegisterPageState extends State<RegisterPage> {
         await FirebaseFirestore.instance.collection("users").doc(userCredential.user!.uid).set({
           'name': name,
           'email': email,
+          'role': 'user',
           // add more fields if necessary
         });
   if (!mounted) return; 
-        Navigator.of(context).pushReplacementNamed("/home");
+        Navigator.of(context).pushReplacementNamed("/home/");
       } on FirebaseAuthException catch (e) {
         if (e.code == 'weak-password') {
           print('The password provided is too weak.');

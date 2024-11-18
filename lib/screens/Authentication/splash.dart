@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => const Splash(),
         '/register/': (context) => const RegisterPage(),  // Define RegisterPage class
         '/login/': (context) => const LoginPage(),        // Define LoginPage class
-        '/home': (context) => const HomePage(),          // Define HomePage class
+        '/home/': (context) => const HomePage(),          // Define HomePage class
       },
     );
   }
@@ -59,7 +59,7 @@ class SplashState extends State<Splash> {
           if (doc.exists) {
             final data = doc.data() as Map<String, dynamic>;
             Util.user = AppUser.fromMap(data);
-            _navigateToPage("/home");
+            _navigateToPage("/home/");
           } else {
             _navigateToPage("/login/");
           }

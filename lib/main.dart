@@ -19,7 +19,7 @@ void main() async {
     print("Firebase initialization error: $e");
   }
 
-  runApp(const MyApp());
+  runApp(const MainApp());
 }
 
 class MainApp extends StatelessWidget {
@@ -36,9 +36,9 @@ class MainApp extends StatelessWidget {
        "/": (context) => const Splash(),
          "/register/": (context) => const RegisterPage(),
          "/login/": (context) => const LoginPage(),
-         "/home": (context) => const HomePage(),
-         "/addevent": (context) => const AddStation(),
-         "/liststations": (context) => const ListMyStations(), 
+         "/home/": (context) => const HomePage(),
+         "/addevent/": (context) => const AddStation(),
+         "/liststations/": (context) => const ListMyStations(), 
          
         
         

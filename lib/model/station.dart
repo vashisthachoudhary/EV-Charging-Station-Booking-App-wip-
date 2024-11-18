@@ -81,11 +81,13 @@ class Pricing {
 }
 
 class Station {
+  final String stationId;
   String stationName;              // Name of the station
   List<Port> availablePorts;       // List of available ports
   Pricing pricingInfo;             // Pricing information
 
   Station({
+    required this.stationId,
     required this.stationName,
     required this.availablePorts,
     required this.pricingInfo,
@@ -103,6 +105,7 @@ class Station {
   // Create a Station instance from a Map
   factory Station.fromMap(Map<String, dynamic> map) {
     return Station(
+      stationId: map['stationId'],
       stationName: map['stationName'] ?? "",
       availablePorts: List<Port>.from(
           map['availablePorts']?.map((portMap) => Port.fromMap(portMap)) ??
@@ -114,6 +117,7 @@ class Station {
   // Get an empty Station object
   static Station getEmptyObject() {
     return Station(
+      stationId: '',
       stationName: "",
       availablePorts: [],
       pricingInfo: Pricing.getEmptyObject(),
@@ -131,6 +135,7 @@ void main() {
   Pricing pricing = Pricing(pricePerHour: 10.0, chargingTimeSpent: 2);
 
   Station station = Station(
+    stationId: '00',
     stationName: 'EV Station 1',
     availablePorts: ports,
     pricingInfo: pricing,

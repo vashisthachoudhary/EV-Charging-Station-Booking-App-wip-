@@ -17,7 +17,7 @@ class ListMyStationsState extends State<ListMyStations> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.of(context).pushNamed("/addevent"); // Navigate to add station page
+          Navigator.of(context).pushNamed("/addevent/"); // Navigate to add station page
         },
        // backgroundColor: Mytheme.darkGreenish,
         child: const Icon(Icons.add, color: Colors.white),

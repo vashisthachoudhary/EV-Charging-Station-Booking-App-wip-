@@ -1,14 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ev_app/screens/Authentication/Home/station_detail_user.dart';
 import 'package:ev_app/screens/Authentication/Home/stations._detail.dart';
 import 'package:flutter/material.dart';
 import 'package:ev_app/model/station.dart';
 import 'package:ev_app/widgets/theme.dart';
 
 class ListAllStations extends StatefulWidget {
-  const ListAllStations({super.key});
+  final String userRole;
+
+  const ListAllStations({Key? key, required this.userRole}) : super(key: key);
 
   @override
-  ListAllStationsState createState() => ListAllStationsState();
+  State<ListAllStations> createState() => ListAllStationsState();
 }
 
 class ListAllStationsState extends State<ListAllStations> {
@@ -53,11 +56,19 @@ class ListAllStationsState extends State<ListAllStations> {
 
               return GestureDetector(
                 onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => StationDetailsPages(station: station),
-                    ),
-                  );
+                  widget.userRole == "admin"
+                      ? Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                StationDetailsPages(station: station),
+                          ),
+                        )
+                      : Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                StationDetailsPagesUser(station: station),
+                          ),
+                        );
                 },
                 child: Card(
                   shape: RoundedRectangleBorder(
@@ -89,7 +100,8 @@ class ListAllStationsState extends State<ListAllStations> {
                         // Display Station Pricing Info
                         Row(
                           children: [
-                            const Icon(Icons.attach_money, color: Colors.greenAccent),
+                            const Icon(Icons.attach_money,
+                                color: Colors.greenAccent),
                             const SizedBox(width: 5),
                             Text(
                               "₹${(station.pricingInfo.pricePerHour).toDouble()}/hr",
@@ -102,7 +114,8 @@ class ListAllStationsState extends State<ListAllStations> {
                         // Display Available Ports
                         Row(
                           children: [
-                            const Icon(Icons.ev_station, color: Colors.greenAccent),
+                            const Icon(Icons.ev_station,
+                                color: Colors.greenAccent),
                             const SizedBox(width: 5),
                             Text(
                               "${station.availablePorts.length} ports available",
@@ -117,12 +130,21 @@ class ListAllStationsState extends State<ListAllStations> {
                           alignment: Alignment.centerRight,
                           child: ElevatedButton(
                             onPressed: () {
-                              Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      StationDetailsPages(station: station),
-                                ),
-                              );
+                              widget.userRole == "admin"
+                                  ? Navigator.of(context).push(
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            StationDetailsPages(
+                                                station: station),
+                                      ),
+                                    )
+                                  : Navigator.of(context).push(
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            StationDetailsPagesUser(
+                                                station: station),
+                                      ),
+                                    );
                             },
                             style: ElevatedButton.styleFrom(
                               foregroundColor: Colors.white,
