@@ -13,7 +13,7 @@ class StationDetailsPages extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-       backgroundColor: Colors.blue,
+       backgroundColor: const Color.fromARGB(255, 44, 98, 45),
         title: Text(station.stationName),
       ),
       body: Container(

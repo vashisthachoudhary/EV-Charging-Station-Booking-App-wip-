@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ev_app/screens/Authentication/Forms/add_station.dart';
 import 'package:ev_app/screens/Authentication/Home/discover_stations.dart';
 import 'package:ev_app/screens/Authentication/Home/list_mystations.dart';
+import 'package:ev_app/screens/Authentication/Home/profilepage.dart';
 import 'package:ev_app/screens/Authentication/Home/viewBookings.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -49,13 +50,15 @@ class _HomePageState extends State<HomePage> {
                 const Text("LOCATION WITH MAP"), // 0
                 const ListMyStations(), // Admin-specific
                 // ListAllStations(userRole: userRole), // 2
-                const Text("PROFILE PAGE"), // 3
+                // const Text("PROFILE PAGE"), // 3
+                const ProfilePage(),
               ]
             : [
                 const Text("LOCATION WITH MAP"), // 0
                 ListAllStations(userRole: userRole), // 1
                 const ViewBookingsPage(), // 2
-                const Text("PROFILE PAGE"), // 2
+                // const Text("PROFILE PAGE"), // 2
+                const ProfilePage(),
               ];
           if (userRole == "user") {
             navBarItems = [

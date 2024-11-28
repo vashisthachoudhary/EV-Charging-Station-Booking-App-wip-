@@ -15,6 +15,7 @@ class StationDetailsPagesUser extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 44, 98, 45),
         //  backgroundColor: Mytheme.darkGreenish,
         title: Text(station.stationName),
       ),
