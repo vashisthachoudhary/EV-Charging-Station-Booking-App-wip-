@@ -34,24 +34,3 @@ This project is a mobile application designed to simplify the process of locatin
 
 ---
 
-## Troubleshooting
-
-If the above content still doesn't render properly on GitHub:
-
-1. **Ensure Proper Encoding**:
-   - Save the file as `README.md` using UTF-8 encoding.
-   - Avoid any unnecessary BOM markers at the start of the file.
-
-2. **Check the Rendered Output Locally**:
-   - Use a Markdown viewer like [Dillinger](https://dillinger.io/) or your code editor's Markdown preview (e.g., VS Code) to verify the content.
-
-3. **Push to GitHub**:
-   - Add and commit the file to your repository:
-     ```bash
-     git add README.md
-     git commit -m "Add README"
-     git push origin main
-     ```
-   - Visit the repository on GitHub to check the rendered README.
-
-Let me know if the issue persists! 😊
